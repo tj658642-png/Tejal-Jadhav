@@ -1,0 +1,19 @@
+{
+  "name": "Tejal-Jadhav",
+  "user": "ubuntu",
+  "install": "bash .cursor/scripts/cloud-agent-install.sh",
+  "start": "bash .cursor/scripts/cloud-agent-start.sh",
+  "ports": [
+    {
+      "name": "static preview",
+      "port": 8080
+    }
+  ],
+  "terminals": [
+    {
+      "name": "preview",
+      "command": "python3 -m http.server 8080 --bind 127.0.0.1",
+      "description": "Serves the repository root for local preview until application code is added."
+    }
+  ]
+}
