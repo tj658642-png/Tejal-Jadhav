@@ -5,19 +5,15 @@
   "start": "bash .cursor/scripts/cloud-agent-start.sh",
   "ports": [
     {
-      "name": "client",
-      "port": 5173
-    },
-    {
-      "name": "api",
+      "name": "AI Council (UI + API)",
       "port": 4000
     }
   ],
   "terminals": [
     {
-      "name": "dev",
-      "command": "npm run dev",
-      "description": "Runs API (4000) and Vite client (5173)."
+      "name": "app",
+      "command": "bash .cursor/scripts/start-cloud-app.sh",
+      "description": "Serves the built React app and API together on port 4000."
     }
   ]
 }
