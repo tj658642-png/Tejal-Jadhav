@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark light;
+}
+
+body {
+  @apply m-0 min-h-screen bg-slate-950 text-slate-100 antialiased;
+}
+
+.light body,
+body.light {
+  @apply bg-slate-50 text-slate-900;
+}
+
+.glass {
+  @apply border border-white/10 bg-white/5 backdrop-blur-md;
+}
+
+.light .glass {
+  @apply border-slate-200/80 bg-white/70;
+}
