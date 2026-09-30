@@ -25,8 +25,8 @@ export default function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-            <Route path="/analyze" element={<ProtectedRoute><AnalyzePage /></ProtectedRoute>} />
-            <Route path="/analysis/:id" element={<ProtectedRoute><AnalysisResultPage /></ProtectedRoute>} />
+            <Route path="/analyze" element={<AnalyzePage />} />
+            <Route path="/analysis/:id" element={<AnalysisResultPage />} />
             <Route path="/history" element={<ProtectedRoute><HistoryPage /></ProtectedRoute>} />
             <Route path="/models" element={<ProtectedRoute><ModelsPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />

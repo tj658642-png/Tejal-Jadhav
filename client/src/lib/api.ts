@@ -7,7 +7,7 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   };
   const token = localStorage.getItem('sb-access-token');
   if (token) headers.Authorization = `Bearer ${token}`;
-  if (!token && !import.meta.env.VITE_SUPABASE_URL) {
+  if (!token) {
     headers['x-demo-user'] = '1';
   }
   const res = await fetch(`${API_URL}${path}`, { ...options, headers });

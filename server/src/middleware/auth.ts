@@ -29,8 +29,15 @@ export async function optionalAuth(req: AuthRequest, _res: Response, next: NextF
   next();
 }
 
+function applyGuestDemoUser(req: AuthRequest): void {
+  if (!req.userId && req.headers['x-demo-user'] === '1') {
+    req.userId = DEMO_USER_ID;
+  }
+}
+
 export async function requireAuth(req: AuthRequest, res: Response, next: NextFunction) {
   await optionalAuth(req, res, () => {
+    applyGuestDemoUser(req);
     if (!req.userId) {
       if (!isSupabaseConfigured && req.headers['x-demo-user'] === '1') {
         req.userId = DEMO_USER_ID;
@@ -43,6 +50,7 @@ export async function requireAuth(req: AuthRequest, res: Response, next: NextFun
 }
 
 export function allowDemoUser(req: AuthRequest, res: Response, next: NextFunction) {
+  applyGuestDemoUser(req);
   if (!req.userId && !isSupabaseConfigured) {
     req.userId = DEMO_USER_ID;
   }

@@ -44,7 +44,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       user,
       session,
       loading,
-      isDemoAuth: !supabaseConfigured,
+      isDemoAuth:
+        !supabaseConfigured || import.meta.env.VITE_ENABLE_GUEST_DEMO === 'true',
       signUp: async (email, password, fullName) => {
         if (!supabase) throw new Error('Supabase is not configured');
         const { error } = await supabase.auth.signUp({
